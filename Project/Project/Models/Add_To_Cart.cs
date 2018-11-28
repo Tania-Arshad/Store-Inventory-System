@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Project
+namespace Project.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Add_To_Cart
     {
         public string Name { get; set; }
-        public string Password { get; set; }
-        public int CNIC { get; set; }
-        public string Email { get; set; }
-        public int Contact_No { get; set; }
-        public string Home_Address { get; set; }
+        public int Quantity { get; set; }
+        public int Price { get; set; }
+        public int Total { get; set; }
     }
 }

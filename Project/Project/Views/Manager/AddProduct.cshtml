@@ -6,47 +6,59 @@
 }
 
 <center><h2>AddProduct</h2></center>
+
 <body>
 
-    <form>
+    
+    <form action="/AddProduct" method="post">
         <center>Name:<br></center>
-        <center><input type="text" name="Name"><br></center>
+        @model Project.Models.Product
+
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
         <center>Price:<br></center>
-        <center><input type="text" name="Price"><br></center>
+
+
+        @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
         <center>Image:<br></center>
-        <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%">Choose png.</button></center>
+        <center><button type="submit" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%">Choose png.</button></center>
 
     </form>
     <center>Quantity:<br></center>
-    <center><input type="text" name="Quantity"><br></center>
-    <center>EXP Date:<br></center>
-    <center><input type="text" name="EXP Date"><br></center>
-    <center>MFG Date:<br></center>
-    <center><input type="text" name="MFG Date"><br></center>
 
-        <div>
-            <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%">Add Item</button></center>
-        </div>
-            <br>
-            <br>
-            <br>
-            <table style="width:70%" border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>price</th>
-                    <th>Quantity</th>
-                    <th>MFG Date</th>
-                    <th>EXP Date</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <td>Magnum</td>
-                    <td>90</td>
-                    <td>100</td>
-                    <td>10-2-2017</td>
-                    <td>10-2-2018</td>
-                    <td><button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Update Item</button> <button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Delete Item</button></td>
-            </table>
+    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+    <center>EXP Date:<br></center>
+
+
+    @Html.EditorFor(model => model.Exp_Date, new { htmlAttributes = new { @class = "form-control" } })
+    <center>MFG Date:<br></center>
+
+
+    @Html.EditorFor(model => model.Mfg_Date, new { htmlAttributes = new { @class = "form-control" } })
+
+    <div>
+        <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%" onclick="location.href='@Url.Action("AddProduct", "Manager")'">Add Item</button></center>
+    </div>
+    <br>
+    <br>
+    <br>
+    <table style="width:70%" border="1">
+        <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>Quantity</th>
+            <th>MFG Date</th>
+            <th>EXP Date</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>Magnum</td>
+            <td>90</td>
+            <td>100</td>
+            <td>10-2-2017</td>
+            <td>10-2-2018</td>
+            <td><button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Update Item</button> <button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Delete Item</button></td>
+    </table>
 
 </body>
+
 
