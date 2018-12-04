@@ -14,17 +14,21 @@
                 <th> price</th>
                 <th>Total</th>
             </tr>
-            <tr>
-                <td>Magnum</td>
-                <td>1</td>
-                <td>90</td>
-                <td>90</td>
-        </table>
+            @foreach (Add_To_Cart item in ViewBag.Cart)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price</td>
+                    <td>@item.Total</td>
+                    </tr>
+                    }
+            </table>
         <div class="row" style="padding-top:5px">
             <div>
-                <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=bill.html>Buy Now</button></center>
-                <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=aneesa.html>Continue Shopping</a></button></center>
-            </div>
+                <center>@Html.ActionLink("Buy Now", "CheckOut", "Home")</center>
+                                <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=aneesa.html>Continue Shopping</a></button></center>
+</div>
         </div>
     </div>
 </body>

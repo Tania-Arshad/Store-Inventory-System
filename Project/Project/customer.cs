@@ -19,6 +19,7 @@ namespace Project
         public int CNIC { get; set; }
         public string Email { get; set; }
         public int Contact_No { get; set; }
-        public string Home_Address { get; set; }
+        public string C_Home_Address { get; set; }
+        public int CustomerId { get; set; }
     }
 }

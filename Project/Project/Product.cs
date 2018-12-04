@@ -19,5 +19,6 @@ namespace Project
         public int Quantity { get; set; }
         public System.DateTime Exp_Date { get; set; }
         public System.DateTime Mfg_Date { get; set; }
+        public int ProductId { get; set; }
     }
 }

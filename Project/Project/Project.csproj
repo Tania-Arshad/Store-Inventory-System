@@ -153,77 +153,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_To_Cart.cs">
-      <DependentUpon>ManagerEntityViewModel.tt</DependentUpon>
+      <DependentUpon>StoreInventorySystem.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
-    <Compile Include="customer.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customer.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="customer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerEntityViewModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="customer.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>customer.edmx</DependentUpon>
+    <Compile Include="Customer.cs">
+      <DependentUpon>StoreInventorySystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="ManagerEntityViewModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerEntityViewModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerEntityViewModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerEntityViewModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ManagerEntityViewModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ManagerEntityViewModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Add_To_Cart.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CartViewModel.cs" />
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CustomerViewModel.cs" />
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Product.cs">
-      <DependentUpon>ManagerEntityViewModel.tt</DependentUpon>
+      <DependentUpon>StoreInventorySystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreInventorySystem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreInventorySystem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreInventorySystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreInventorySystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoreInventorySystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreInventorySystem.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -244,16 +208,6 @@
     <Content Include="css\nivo_themes\default\prev%402x.png" />
     <Content Include="css\nivo_themes\default\prev.png" />
     <Content Include="css\style.css" />
-    <Content Include="customer.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>customer.Context.cs</LastGenOutput>
-      <DependentUpon>customer.edmx</DependentUpon>
-    </Content>
-    <Content Include="customer.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>customer.edmx</DependentUpon>
-      <LastGenOutput>customer.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -275,26 +229,6 @@
     <Content Include="js\nivo-lightbox.min.js" />
     <Content Include="js\smoothscroll.js" />
     <Content Include="js\wow.min.js" />
-    <Content Include="ManagerEntityViewModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ManagerEntityViewModel.edmx</DependentUpon>
-      <LastGenOutput>ManagerEntityViewModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ManagerEntityViewModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ManagerEntityViewModel.edmx</DependentUpon>
-      <LastGenOutput>ManagerEntityViewModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -302,27 +236,6 @@
     </Content>
     <Content Include="css\.DS_Store" />
     <Content Include="js\.DS_Store" />
-    <EntityDeploy Include="customer.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>customer.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="customer.edmx.diagram">
-      <DependentUpon>customer.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="ManagerEntityViewModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ManagerEntityViewModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ManagerEntityViewModel.edmx.diagram">
-      <DependentUpon>ManagerEntityViewModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -334,6 +247,16 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="StoreInventorySystem.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreInventorySystem.edmx</DependentUpon>
+      <LastGenOutput>StoreInventorySystem.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StoreInventorySystem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreInventorySystem.edmx</DependentUpon>
+      <LastGenOutput>StoreInventorySystem.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -355,6 +278,13 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Manager\AddProduct.cshtml" />
     <Content Include="Views\Manager\Login.cshtml" />
+    <EntityDeploy Include="StoreInventorySystem.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoreInventorySystem.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="StoreInventorySystem.edmx.diagram">
+      <DependentUpon>StoreInventorySystem.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

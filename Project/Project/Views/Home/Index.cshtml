@@ -49,37 +49,25 @@
 
                 <hr>
             </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Cadbury Dairy Milk ................ <span> Rs.100 </span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Walls Magnum ........................... <span>Rs.200</span></h4>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Omore Kulfi ........................... <span>Rs.60</span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Panteen Shampoo.................... <span>Rs.400</span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Ponds Facewash...................... <span>Rs.300</span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Vital Tea .................................. <span>Rs.300</span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Hico Icecream ................... <span>Rs.500</span></h4>
-
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h4>Colgate Toothpaste ........................... <span>Rs.150</span></h4>
-
-            </div>
+            <table class =" table" align ="center" style="width:70%" border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock Available</th>
+                    <th>Cart</th>
+                </tr>
+                @foreach (Product item in ViewBag.products)
+                {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td align="center">@Html.ActionLink("Add to Cart", "Cart", "Home", new { id = item.ProductId }, null)</td>
+                </tr>
+                }
+            </table>
+            
+            
         </div>
     </div>
 </section>
