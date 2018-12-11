@@ -1,17 +1,23 @@
 ﻿
 @{
-    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@{
+    ViewBag.Title = "SignIn";
 }
 
-<center><h2>Login</h2></center>
-<form>
-    <center>UserName:<br></center>
-    <center><input type="text" name="UserName"><br></center>
-    <center>Password:<br></center>
-    <center><input type="text" name="Password"><br></center>
-</form>
-<div>
-    <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=11.html>Login</a></button></center>
-    <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=8.html>Forgot Password</a></button></center>
-</div>
+<center><h2>Sign In</h2></center>
+<body>
+    <form method="post">
 
+        @model Project.Customer
+        <center>User Name:<br></center>
+        <center>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { style = "width:230px" } })</center>
+        <center>Password:<br></center>
+        <center>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { style = "width:230px" } })</center>
+
+        <div>
+            <center><button type="submit" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1% " onclick="location.href='@Url.Action("AddProduct", "Manager")'">LogIn</button></center>
+        </div>
+    </form>
+</body>

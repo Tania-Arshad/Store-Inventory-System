@@ -166,7 +166,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CartViewModel.cs" />
+    <Compile Include="Manager_Login.cs">
+      <DependentUpon>StoreInventorySystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CustomerViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Product.cs">
@@ -278,6 +280,7 @@
     <Content Include="Views\Shared\_Layout1.cshtml" />
     <Content Include="Views\Manager\AddProduct.cshtml" />
     <Content Include="Views\Manager\Login.cshtml" />
+    <Content Include="Views\Home\bill.cshtml" />
     <EntityDeploy Include="StoreInventorySystem.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>StoreInventorySystem.Designer.cs</LastGenOutput>

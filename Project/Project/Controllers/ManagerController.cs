@@ -20,9 +20,7 @@ namespace Project.Controllers
         public ActionResult AddProduct(ProductViewModel obj)
         {
             try
-            {
-                //string[] aa= DateTime.Now.GetDateTimeFormats().ToArray();
-                
+            {   
                 Product C = new Product();
                 C.Name = obj.Name;
                 C.Price = obj.Price;
@@ -31,6 +29,7 @@ namespace Project.Controllers
                 C.Mfg_Date = DateTime.Now;
                 db.Products.Add(C);
                 db.SaveChanges();
+                ViewBag.products = db.Products.ToList();
                 return View();
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)

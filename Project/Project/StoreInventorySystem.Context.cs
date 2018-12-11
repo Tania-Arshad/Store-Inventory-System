@@ -25,8 +25,9 @@ namespace Project
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Add_To_Cart> Add_To_Cart { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Add_To_Cart> Add_To_Cart { get; set; }
+        public virtual DbSet<Manager_Login> Manager_Login { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }
