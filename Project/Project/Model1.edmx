@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Add_To_Cart">
           <Key>
             <PropertyRef Name="CartId" />
@@ -15,17 +15,25 @@
           <Property Name="Total" Type="int" Nullable="false" />
           <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="Customers">
           <Key>
-            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="Customer Id" />
           </Key>
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CNIC" Type="int" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Contact No" Type="int" Nullable="false" />
-          <Property Name="[Home Address" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Home Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager_Login">
+          <Key>
+            <PropertyRef Name="Manager Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Manager Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -40,11 +48,11 @@
         </EntityType>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Add_To_Cart" EntityType="Self.Add_To_Cart" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager_Login" EntityType="Self.Manager_Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -60,15 +68,23 @@
         </EntityType>
         <EntityType Name="Customer">
           <Key>
-            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="Customer_Id" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CNIC" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Contact_No" Type="Int32" Nullable="false" />
-          <Property Name="C_Home_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Home_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manager_Login">
+          <Key>
+            <PropertyRef Name="Manager_Id" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Manager_Id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -81,9 +97,10 @@
           <Property Name="Mfg_Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
-        <EntityContainer Name="Store_Inventory_SystemEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Store_Inventory_System_DbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Add_To_Cart" EntityType="Self.Add_To_Cart" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Manager_Login" EntityType="Self.Manager_Login" />
           <EntitySet Name="Products" EntityType="Self.Product" />
         </EntityContainer>
       </Schema>
@@ -91,7 +108,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Store_Inventory_SystemEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Store_Inventory_System_DbEntities">
           <EntitySetMapping Name="Add_To_Cart">
             <EntityTypeMapping TypeName="Model.Add_To_Cart">
               <MappingFragment StoreEntitySet="Add_To_Cart">
@@ -105,14 +122,23 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="Model.Customer">
-              <MappingFragment StoreEntitySet="Customer">
+              <MappingFragment StoreEntitySet="Customers">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="CNIC" ColumnName="CNIC" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Contact_No" ColumnName="Contact No" />
-                <ScalarProperty Name="C_Home_Address" ColumnName="[Home Address" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Home_Address" ColumnName="Home Address" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manager_Login">
+            <EntityTypeMapping TypeName="Model.Manager_Login">
+              <MappingFragment StoreEntitySet="Manager_Login">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Manager_Id" ColumnName="Manager Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

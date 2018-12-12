@@ -9,7 +9,7 @@ namespace Project.Controllers
 {
     public class ManagerController : Controller
     {
-        private Store_Inventory_SystemEntities db  = new Store_Inventory_SystemEntities();
+        private Store_Inventory_System_DbEntities db  = new Store_Inventory_System_DbEntities();
         [HttpGet]
         public ActionResult AddProduct()
         {
@@ -20,9 +20,7 @@ namespace Project.Controllers
         public ActionResult AddProduct(ProductViewModel obj)
         {
             try
-            {
-                //string[] aa= DateTime.Now.GetDateTimeFormats().ToArray();
-                
+            {   
                 Product C = new Product();
                 C.Name = obj.Name;
                 C.Price = obj.Price;
@@ -31,6 +29,7 @@ namespace Project.Controllers
                 C.Mfg_Date = DateTime.Now;
                 db.Products.Add(C);
                 db.SaveChanges();
+                ViewBag.products = db.Products.ToList();
                 return View();
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
@@ -54,9 +53,13 @@ namespace Project.Controllers
         {
             return View();
         }
-        public ActionResult DeleteProduct()
+        public ActionResult DeleteProduct(int id)
         {
-            return View();
+            Product p = db.Products.Find(id);
+            db.Products.Remove(p);
+            db.SaveChanges();
+            ViewBag.Products = db.Products.ToList();
+            return View("AddProduct");
         }
         public ActionResult Login()
         {

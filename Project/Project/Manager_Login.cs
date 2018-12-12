@@ -12,14 +12,10 @@ namespace Project
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Manager_Login
     {
         public string Name { get; set; }
         public string Password { get; set; }
-        public int CNIC { get; set; }
-        public string Email { get; set; }
-        public int Contact_No { get; set; }
-        public string Home_Address { get; set; }
-        public int Customer_Id { get; set; }
+        public int Manager_Id { get; set; }
     }
 }

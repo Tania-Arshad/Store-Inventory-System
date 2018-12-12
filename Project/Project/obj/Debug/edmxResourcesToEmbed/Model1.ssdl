@@ -10,16 +10,8 @@
     <Property Name="Total" Type="int" Nullable="false" />
     <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Store Inventory System.dbo.Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Customers">
     <Key>
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Password" />
-      <PropertyRef Name="CNIC" />
-      <PropertyRef Name="Email" />
-      <PropertyRef Name="Contact No" />
-      <PropertyRef Name="Home Address" />
       <PropertyRef Name="Customer Id" />
     </Key>
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -28,17 +20,15 @@ warning 6002: The table/view 'Store Inventory System.dbo.Customers' does not hav
     <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Contact No" Type="int" Nullable="false" />
     <Property Name="Home Address" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Customer Id" Type="int" Nullable="false" />
+    <Property Name="Customer Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Store Inventory System.dbo.Manager_Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Manager_Login">
     <Key>
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Password" />
+      <PropertyRef Name="Manager Id" />
     </Key>
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Manager Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -53,23 +43,8 @@ warning 6002: The table/view 'Store Inventory System.dbo.Manager_Login' does not
   </EntityType>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="Add_To_Cart" EntityType="Self.Add_To_Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manager_Login" EntityType="Self.Manager_Login" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Customers" EntityType="Self.Customers" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Customers].[Name] AS [Name], 
-    [Customers].[Password] AS [Password], 
-    [Customers].[CNIC] AS [CNIC], 
-    [Customers].[Email] AS [Email], 
-    [Customers].[Contact No] AS [Contact No], 
-    [Customers].[Home Address] AS [Home Address], 
-    [Customers].[Customer Id] AS [Customer Id]
-    FROM [dbo].[Customers] AS [Customers]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Manager_Login" EntityType="Self.Manager_Login" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Manager_Login].[Name] AS [Name], 
-    [Manager_Login].[Password] AS [Password]
-    FROM [dbo].[Manager_Login] AS [Manager_Login]</DefiningQuery>
-    </EntitySet>
   </EntityContainer>
 </Schema>

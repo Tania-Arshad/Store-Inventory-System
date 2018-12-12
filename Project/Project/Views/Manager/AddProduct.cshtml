@@ -9,7 +9,7 @@
 
 <body>
 
-    
+
     <form method="post">
         <center>Name:<br></center>
         @model Project.Product
@@ -23,19 +23,22 @@
 
 
         <center>@Html.EditorFor(model => model.Exp_Date, new { htmlAttributes = new { style = "width:230px" } })</center>
+              
+                 
         <center>MFG Date:<br></center>
 
 
         <center>@Html.EditorFor(model => model.Mfg_Date, new { htmlAttributes = new { style = "width:230px" } })</center>
 
-    <div>
-        <center><button type="submit" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1% " onclick="location.href='@Url.Action("AddProduct", "Manager")'">Add Item</button></center>
-    </div>
-</form>
+        <div>
+            <center><button type="submit" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1% " , onclick="location.href='@Url.Action("AddProduct", "Manager")'">Add Item</button></center>
+
+        </div>
+    </form>
     <br>
     <br>
     <br>
-    <table class =" table" align ="center" style="width:70%" border="1">
+    <table class=" table" align="center" style="width:70%" border="1">
         <tr>
             <th>Name</th>
             <th>price</th>
@@ -47,16 +50,21 @@
         @foreach (Product item in ViewBag.products)
         {
             <tr>
-            <td>@item.Name</td>
-            <td>@item.Price</td>
-            <td>@item.Quantity</td>
-            <td>@item.Mfg_Date</td>
-            <td>@item.Exp_Date</td>
-            <td><button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Update Item</button> <button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Delete Item</button></td>
-            </tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.Mfg_Date</td>
+                <td>@item.Exp_Date</td>
+                @*<td><button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Update Item</button> <button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%"> onclick="location.href='@Url.Action("DeleteProduct", "Manager")'">Delete Item</button></td>*@
+                <td><button type="button" style="height:33px;width:100px;margin-left:auto;margin-right:auto;margin-top:1%">Update Item</button></td>
+                <td>@Html.ActionLink("Delete", "DeleteProduct", "Manager", new { id = @item.ProductId }, null)
+
+
+</tr>                                                                                                                               
         }
-     </table>
+    </table>
 
 </body>
 
 
+                                                                                                                                                                                                                                                          

@@ -1,15 +1,21 @@
-﻿using System;
+﻿using Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Project.Controllers
 {
     public class HomeController : Controller
     {
-        private Store_Inventory_SystemEntities db = new Store_Inventory_SystemEntities();
-        [HttpGet]
+        private Store_Inventory_System_DbEntities db = new Store_Inventory_System_DbEntities();
+
+
+       
+        
+        [HttpGet]    
         public ActionResult Index()
         {
             ViewBag.products = db.Products.ToList();
@@ -25,15 +31,77 @@ namespace Project.Controllers
 
         public ActionResult Login()
         {
-            ViewBag.Message = "Your contact page.";
-
+            //ViewBag.customers = db.Customers.ToList();
             return View();
         }
+
+
+        [HttpPost]
+        public ActionResult LogIn(CustomerViewModel obj)
+        {
+            try
+            {
+                Customer C = new Customer();
+                C.Name = obj.Name;
+                C.Password = obj.Password;
+                db.Customers.Add(C);
+                db.SaveChanges();
+                return View();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
+        }
+        [HttpGet]
         public ActionResult SignIn()
         {
-            ViewBag.Message = "Your contact page.";
-
+            //ViewBag.Customers = db.Customers.ToList();
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SignIn(CustomerViewModel obj)
+        {
+            try
+            {
+                Customer C = new Customer();
+                C.Name = obj.Name;
+                C.Password = obj.Password;
+                C.CNIC = obj.CNIC;
+                C.Email = obj.Email;
+                C.Contact_No = obj.Contact_No;
+                C.Home_Address = obj.Home_Address;
+                db.Customers.Add(C);
+                db.SaveChanges();
+                return View();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
         }
 
         public ActionResult CheckOut()

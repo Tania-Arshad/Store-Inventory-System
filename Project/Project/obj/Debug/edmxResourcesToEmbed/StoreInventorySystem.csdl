@@ -10,32 +10,47 @@
     <Property Name="Total" Type="Int32" Nullable="false" />
     <Property Name="CartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CNIC" Type="Int32" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Contact_No" Type="Int32" Nullable="false" />
-    <Property Name="C_Home_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
+  <EntityContainer Name="Store_Inventory_SystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Add_To_Cart" EntityType="Self.Add_To_Cart" />
+    <EntitySet Name="Products" EntityType="Model.Product" />
+    <EntitySet Name="Customers" EntityType="Model.Customer" />
+    <EntitySet Name="Manager_Login" EntityType="Model.Manager_Login" />
+  </EntityContainer>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductId" />
     </Key>
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" Nullable="false" />
     <Property Name="Exp_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Mfg_Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
-  <EntityContainer Name="Store_Inventory_SystemEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Add_To_Cart" EntityType="Self.Add_To_Cart" />
-    <EntitySet Name="Customers" EntityType="Self.Customer" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
-  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="CNIC" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Contact_No" />
+      <PropertyRef Name="Home_Address" />
+      <PropertyRef Name="Customer_Id" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CNIC" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Contact_No" Type="Int32" Nullable="false" />
+    <Property Name="Home_Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manager_Login">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -13,10 +13,10 @@ namespace Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Store_Inventory_SystemEntities : DbContext
+    public partial class Store_Inventory_System_DbEntities : DbContext
     {
-        public Store_Inventory_SystemEntities()
-            : base("name=Store_Inventory_SystemEntities")
+        public Store_Inventory_System_DbEntities()
+            : base("name=Store_Inventory_System_DbEntities")
         {
         }
     
@@ -27,6 +27,7 @@ namespace Project
     
         public virtual DbSet<Add_To_Cart> Add_To_Cart { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Manager_Login> Manager_Login { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }

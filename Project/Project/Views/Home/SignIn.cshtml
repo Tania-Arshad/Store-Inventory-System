@@ -1,23 +1,28 @@
-﻿
-@{
-    ViewBag.Title = "SignIn";
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<center><h2>SignUp</h2></center>
-<form>
-    <center>UserName:<br></center>
-    <center><input type="text" name="UserName"><br></center>
-    <center>Password:<br></center>
-    <center><input type="text" name="Password"><br></center>
-    <center>CNIC:<br></center>
-    <center><input type="text" name="CNIC"><br></center>
-    <center>Email:<br></center>
-    <center><input type="text" name="Email"><br></center>
-    <center>Home Address:<br></center>
-    <center><input type="text" name="Home Address"><br></center>
-</form>
-<div>
-    <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=7.html>Sign Up</a></button></center>
-    <center><button type="button" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1%"><a href=11.html>Login</a></button></center>
-</div>
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<center><h2>Sign Up</h2></center>
+<body>
+    <form method="post">
+        @model Project.Models.CustomerViewModel
+            <center>User Name:<br></center>
+            <center>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { style = "width:230px" } })</center>
+            <center>Password:<br></center>
+            <center>@Html.EditorFor(model => model.Password, new { htmlAttributes = new { style = "width:230px" } })</center>
+            <center>CNIC:<br></center>
+            <center>@Html.EditorFor(model => model.CNIC, new { htmlAttributes = new { style = "width:230px" } })</center>
+            <center>EMAIL:<br></center>
+            <center>@Html.EditorFor(model => model.Email, new { htmlAttributes = new { style = "width:230px" } })</center>
+            <center>Home Address:<br></center>
+            <center>@Html.EditorFor(model => model.Home_Address, new { htmlAttributes = new { style = "width:230px" } })</center>
+                        <div>
+                            <center><button type="submit" style="height:33px;width:140px;margin-left:auto;margin-right:auto;margin-top:1% " onclick="location.href='@Url.Action("Login", "Customer")'">LogIn</button></center>
+                        </div>
+                    </form>
+ </body>
 
