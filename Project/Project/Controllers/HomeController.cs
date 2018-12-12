@@ -11,6 +11,7 @@ namespace Project.Controllers
     public class HomeController : Controller
     {
         private Store_Inventory_System_DbEntities db = new Store_Inventory_System_DbEntities();
+    
 
 
        
